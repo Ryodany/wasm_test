@@ -1,7 +1,8 @@
 @echo off
 
-call wa compile -o test.wasm test_wasm.c
+call emcc test_wasm.cpp -O3 -s WASM=1 -o test.wasm
 
+echo.
 echo Compilation done!
 
 echo Press ENTER to exit...

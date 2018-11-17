@@ -1,4 +1,0 @@
-char *getTestStr()
-{
-    return "test";
-}
