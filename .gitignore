@@ -42,9 +42,5 @@ obj
 *.exp
 *.iobj
 *.ipdb
-<<<<<<< HEAD
-node_modules/
-=======
-
+node/node_modules/
 *.wasm
->>>>>>> 2054e6eaf8c4adc27159d96f17ba94e30aaa7a00
