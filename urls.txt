@@ -1,0 +1,2 @@
+- Webassembly compiling reference:
+    https://www.npmjs.com/package/webassembly
