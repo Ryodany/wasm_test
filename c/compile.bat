@@ -1,6 +1,6 @@
 @echo off
 
-call emcc test_wasm.cpp -s WASM=1 -o test.wasm
+call wa compile -o test.wasm test_wasm.c
 
 echo Compilation done!
 
