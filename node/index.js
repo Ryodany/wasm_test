@@ -2,13 +2,13 @@ var express = require('express');
 var webassembly = require("webassembly");
 
 var app = express();
-
-var $test = webassembly.load("../cpp/test.wasm")
+var $test = webassembly.load("../cpp/test.wasm");
 
 app.get('/', function (req, res) {
-    $test.then(_=>{
-
-        res.send(_.exports.getTestStr());
+    $test.then(module=>{
+        const str = module.exports.getTestStr();
+        console.log(str)
+        res.send(200, str);
     })
 });
 
