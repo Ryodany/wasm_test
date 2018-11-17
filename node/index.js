@@ -8,7 +8,7 @@ var $test = webassembly.load("../cpp/test.wasm")
 app.get('/', function (req, res) {
     $test.then(_=>{
 
-        res.send(module.exports.getTestStr());
+        res.send(_.exports.getTestStr());
     })
 });
 
