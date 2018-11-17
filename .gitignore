@@ -30,6 +30,7 @@
 
 .localhistory/
 .vs/
+.vscode/
 build/
 obj
 *.idb
