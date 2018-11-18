@@ -1,8 +1,7 @@
 - Webassembly compiling reference:
     http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html
 
-- Get javascript code to work:
-    https://stackoverflow.com/questions/45295339/can-i-somehow-build-webassembly-code-without-the-emscripten-glue
+https://kapadia.github.io/emscripten/2013/09/13/emscripten-pointers-and-pointers.html
 
 https://becominghuman.ai/passing-and-returning-webassembly-array-parameters-a0f572c65d97
 
