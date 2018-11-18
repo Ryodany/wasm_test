@@ -4,7 +4,9 @@ var app = express();
 var webassemblyC = require("webassembly");
 var $test = webassemblyC.load("../c/test.wasm");
 
-var webassemblyCpp = require("./cpptest.js");
+const path = require("path");
+process.chdir(path.join(__dirname, "wasm"));
+const webassemblyCpp = require("./wasm/cpptest.js");
 
 /*const WA = WebAssembly, env = {
         memoryBase: 0,
@@ -28,8 +30,8 @@ app.get('/cpp', function (req, res) {
         res.send(200, module.memory.getString(strPointer));
     });*/
 
-    
-    console.log(webassemblyCpp.ccall("getTestStrCpp", "void", []));
+    webassemblyCpp._getTestStrCpp();
+    //console.log(webassemblyCpp._getTestStrCpp());
     //console.log(webassemblyCpp._getTestStrCpp());
     
     /*cppTestCode = new Uint8Array(require('fs').readFileSync('cpptest.wasm'))

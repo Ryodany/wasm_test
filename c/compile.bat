@@ -13,14 +13,17 @@ set modules_to_compile=test_wasm.cpp test_wasm.c
 set output_file=cpptest.js
 echo Compiling %modules_to_compile%...
 rem call wa compile test_wasm.c -O3 -o test.wasm
-call em++ %modules_to_compile% -g2 -std=c++14 -O1 -s WASM=1 -s ASSERTIONS=1 -o %wasm_build_dir%%output_file%
+call em++ %modules_to_compile% -g2 -std=c++14 -O1 -s MODULARIZE=1 -s WASM=1 -s ASSERTIONS=1 -s EXPORTED_FUNCTIONS="['_getTestStrCpp']" -o %wasm_build_dir%%output_file%
 rem -std=c++17 doesn't work yet apparently
 echo.
 
 
-set node_wasm_dir_name=..\node\
+set node_wasm_dir_name=..\node\wasm\
 set node_wasm_dir=%cur_dir%%node_wasm_dir_name%
-if not exist %node_wasm_dir% ( mkdi %node_wasm_dir%)
+if exist %node_wasm_dir% (
+    rmdir /s /q %node_wasm_dir%
+    )
+mkdir %node_wasm_dir%
 
 set load_wasm_workerjs=load-wasm-worker.js
 set beforejs=before.js

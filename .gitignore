@@ -44,4 +44,5 @@ obj
 *.iobj
 *.ipdb
 node/node_modules/
+node/wasm/
 *.wasm
