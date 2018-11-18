@@ -1,3 +1,4 @@
 - Webassembly compiling reference:
     http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html
 
+https://becominghuman.ai/passing-and-returning-webassembly-array-parameters-a0f572c65d97
