@@ -4,5 +4,5 @@
 
 WASM_FUNCTION_EXPORT char *getTestStr()
 {
-    return "Comeporongas marico de mierda";
+    return "YEAAAAAAAAAAAAAAAH IT WORKS :D";
 }
