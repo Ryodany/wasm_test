@@ -1,8 +1,6 @@
-#include "include/webassembly/export.h"
+#include "webassembly/export.h"
 
-#define TEST_SIZE 256
-
-WASM_FUNCTION_EXPORT char *getTestStrC()
+WASM_FUNCTION_EXPORT const char *getTestStrC()
 {
-    return "YEAAAAAAAAAAAAAAAH IT WORKS :D";
+    return "C string from C function";
 }

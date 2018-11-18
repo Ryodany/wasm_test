@@ -1,9 +1,27 @@
 #include <string>
 #include <iostream>
-#include "include/webassembly/export.h"
+#include "webassembly/export.h"
 
-WASM_FUNCTION_EXPORT void getTestStrCpp()
+std::string getTestStrCpp()
 {
-    std::cout << "Printing in C++" << std::endl;
-    //return "C++!! YEAAAAAAAAAAAAAAAH IT WORKS :D";
+    return "C++ string from C++ code printed through main function";
+}
+
+extern "C" 
+{
+    WASM_FUNCTION_EXPORT int getNumPlus(int n)
+    {
+        return 39 + n;
+    }
+    WASM_FUNCTION_EXPORT const char *getCStringWithoutNameMangling(const char *str)
+    {
+        return str;
+    }
+}
+
+int main()
+{
+    std::cout << "Running main()" << std::endl;
+    std::cout << getTestStrCpp() << std::endl;
+    return 0;
 }
