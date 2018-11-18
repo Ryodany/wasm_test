@@ -1,4 +1,11 @@
 - Webassembly compiling reference:
     http://kripken.github.io/emscripten-site/docs/getting_started/downloads.html
 
+- Get javascript code to work:
+    https://stackoverflow.com/questions/45295339/can-i-somehow-build-webassembly-code-without-the-emscripten-glue
+
 https://becominghuman.ai/passing-and-returning-webassembly-array-parameters-a0f572c65d97
+
+Linking with other libraries:
+    em++ main.cpp -lzip -L<path to libzip.a> -I<path to zip>/src -o zipit.out
+    https://willowtreeapps.com/ideas/how-to-use-native-libraries-on-node-js-with-emscripten
