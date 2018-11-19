@@ -22,7 +22,7 @@ set cpp_modules_to_compile=test_wasm.cpp test_wasm.c test_structs_classes.cpp
 set c_output_file=ctest.wasm
 set cpp_output_file=cpptest.js
 set include_directories_wa=-I include/
-set include_directories_emcc=-I include/
+set include_directories_emcc=-I include/ -I "%EMSCRIPTEN%/system/include/"
 
 echo Compiling C: %c_modules_to_compile%...
 echo.

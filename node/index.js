@@ -51,13 +51,13 @@ app.get('/cpp', function (req, res) {
     var coordinate = [2, 3];
     console.log("Coordinates: " + webassemblyCpp.coordinateAsString(coordinate));
 
-    console.log("\x1b[36m", "Constructing StructExample through factory method with 69 and 'Cool name bro' params");
+    console.log("\x1b[36m", "\nConstructing StructExample through factory method with 69 and 'Cool name bro' params");
     // reset color
     console.log("\x1b[0m");
     var structExample = webassemblyCpp.constructStructExample(69, "Cool name bro");
     console.log("StructExample.name = " + webassemblyCpp.returnStructExampleString(structExample));
 
-    console.log("\x1b[36m", "Constructing Vector3f with 3, 6, 9 params");
+    console.log("\x1b[36m", "\nConstructing Vector3f with 3, 6, 9 params");
     // reset color
     console.log("\x1b[0m");
     var vec = new webassemblyCpp.Vector3f(3, 6, 9);   
@@ -70,7 +70,7 @@ app.get('/cpp', function (req, res) {
     // delete to delete from js heap, important
     vec.delete();
 
-    console.log("\x1b[36m", "Constructing Vector3f through smart_ptr (unique_ptr) with 1, 2, 3 params");
+    console.log("\x1b[36m", "\nConstructing Vector3f through smart_ptr (unique_ptr) with 1, 2, 3 params");
     // reset color
     console.log("\x1b[0m");
     var smart_ptr_vec = webassemblyCpp.getNewVector3f(1, 2, 3);
