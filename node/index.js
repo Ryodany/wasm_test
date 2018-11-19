@@ -40,7 +40,7 @@ app.get('/cpp/:param', function (req, res) {
             const str = webassemblyCpp.stdStringSignature("yes!! it works!"); // we should pass string throught the http
             output = str;
         break;
-        case 'coordinateAsString': // Coordinates (?)
+        case 'coordinateAsString': // Coordinates (aka point) creating and printing
             // I declare it as an array (or list) because I declared Coordinate class as value_array, not value_object.
             // This way, although it is a Class, it works as an array when using it.
             console.log("\x1b[36m", "Constructing a Coordinate as an array (as it was defined) with 2 and 3 values");
@@ -48,7 +48,7 @@ app.get('/cpp/:param', function (req, res) {
             const CAS = webassemblyCpp.coordinateAsString(coordinate);
             output = CAS;
         break;
-        case 'constructStructExample': // idk what is it exactly
+        case 'constructStructExample': // Constructing object through function (factory method)
             console.log("\x1b[36m", "Constructing StructExample through factory method with 69 and 'Cool name bro' params");
             const structExample = webassemblyCpp.constructStructExample(69, "Cool name bro");
             output = webassemblyCpp.returnStructExampleString(structExample);
