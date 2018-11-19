@@ -37,7 +37,46 @@ app.get('/cpp', function (req, res) {
 
     var str = webassemblyCpp.stdStringSignature("yes!! it works!");
     console.log(str);
+    console.log();
 
+    console.log("\x1b[32m", "\Classes and structs:");
+    // reset color
+    console.log("\x1b[0m");
+
+    // I declare it as an array (or list) because I declared Coordinate class as value_array, not value_object.
+    // This way, although it is a Class, it works as an array when using it.
+    console.log("\x1b[36m", "Constructing a Coordinate as an array (as it was defined) with 2 and 3 values");
+    // reset color
+    console.log("\x1b[0m");
+    var coordinate = [2, 3];
+    console.log("Coordinates: " + webassemblyCpp.coordinateAsString(coordinate));
+
+    console.log("\x1b[36m", "Constructing StructExample through factory method with 69 and 'Cool name bro' params");
+    // reset color
+    console.log("\x1b[0m");
+    var structExample = webassemblyCpp.constructStructExample(69, "Cool name bro");
+    console.log("StructExample.name = " + webassemblyCpp.returnStructExampleString(structExample));
+
+    console.log("\x1b[36m", "Constructing Vector3f with 3, 6, 9 params");
+    // reset color
+    console.log("\x1b[0m");
+    var vec = new webassemblyCpp.Vector3f(3, 6, 9);   
+    console.log("vec magnitude = " + vec.getMagnitude());
+    console.log("vec x = " + vec.x);
+    vec.x = 25;
+    console.log("modified vec x = " + vec.x);
+    console.log("vec y = " + vec.y);
+    console.log("vec z = " + vec.z);
+    // delete to delete from js heap, important
+    vec.delete();
+
+    console.log("\x1b[36m", "Constructing Vector3f through smart_ptr (unique_ptr) with 1, 2, 3 params");
+    // reset color
+    console.log("\x1b[0m");
+    var smart_ptr_vec = webassemblyCpp.getNewVector3f(1, 2, 3);
+    console.log("smart_ptr_vec magnitude = " + smart_ptr_vec.getMagnitude());
+    // delete to delete from js heap, important
+    smart_ptr_vec.delete()
 
     console.log();
     res.send(200, num);

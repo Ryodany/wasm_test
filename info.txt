@@ -28,3 +28,5 @@ example in c/include/webassembly/cppfuncs.h file.
 With EMSCRIPTEN_BINDINGS you can use std::string and every C++ std type! (Check c/include/cppfuncs.h)
 
 When functions have pointers in their signature you need to add emscripten::allow_raw_pointers() to the emscripten::function function inside of EMSCRIPTEN_BINDINGS.
+
+WASM_FUNCTION_EXPORT is no longer needed, that is, EMSCRIPTEN_BINDINGS exports the functions.

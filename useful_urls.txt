@@ -4,7 +4,7 @@ https://github.com/kripken/emscripten/issues/3083
 
 EMSCRIPTEN_BINDING ref:
     https://kripken.github.io/emscripten-site/docs/api_reference/bind.h.html
-    https://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/embind.html#embind
+    https://kripken.github.io/emscripten-site/docs/porting/connecting_cpp_and_javascript/embind.html
 
 Command line arguments:
     https://softwareengineering.stackexchange.com/questions/325887/emscripten-passing-command-line-arguments

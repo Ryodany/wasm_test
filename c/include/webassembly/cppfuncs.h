@@ -1,7 +1,6 @@
 #pragma once
 #include "webassembly/export.h"
-#include <emscripten/emscripten.h>
-#include <emscripten/bind.h>
+#include "webassembly/emscripten.h"
 
 /*
     To be able to use C++ functions you just need to use EMSCRIPTEN_BINDINGS.
