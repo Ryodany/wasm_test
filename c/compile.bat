@@ -17,7 +17,7 @@ mkdir %cpp_wasm_build_dir%
 echo.
 
 set c_modules_to_compile=test_wasm.c
-set cpp_modules_to_compile=test_wasm.cpp
+set cpp_modules_to_compile=test_wasm.cpp test_wasm.c
 
 set c_output_file=ctest.wasm
 set cpp_output_file=cpptest.js

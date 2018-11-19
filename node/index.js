@@ -19,21 +19,24 @@ app.get('/cpp', function (req, res) {
     process.chdir(path.join(__dirname, "wasm/cpp"));
     const webassemblyCpp = require("./wasm/cpp/cpptest.js")
 
+    var pureCStringFunction = webassemblyCpp.cwrap("getTestStrC", "string", []);
+    var cstring = pureCStringFunction();
+    console.log("Pure C String = " + cstring + "\n");
+
     var cMangledStrFunction = webassemblyCpp.cwrap('getCStringWithoutNameMangling', 'string', ['string']);
-    cMangledStr = cMangledStrFunction("C Mangled Str returned successfully");
-    console.log(cMangledStr + "\n");
+    var cMangledStr = cMangledStrFunction("C Mangled Str returned successfully");
+    console.log("C mangled function str = " + cMangledStr + "\n");
 
     var num = webassemblyCpp._getNumPlus(3);
     console.log("_getNumPlus with arg 3 =");
     console.log(num);
 
-    // WARNING, this does not work even if exported with WASM_FUNCTION_EXPORT macro:
-    // var str = webassemblyCpp._getTestStrCpp();
-    // C++ name-mangled functions do not work. Neither do std libraries and therefore std functions.
-    // They work if called from main function in C++ module.
-
-    // WARNING, functions compiled with emcc even if they are C code won't be found:
-    // var str = webassemblyCpp._getTestStrC();
+    // WARNING: none function with C++ std types (like std::string) can be exported and used through WebAssembly,
+    // see test_wasm.cpp example in c folder. Primitive types in the function signature are required (like const char *),
+    // but inside it you can use std::string and any C++ std types, you just have to return and accept primitive types.  
+    var stdStrFunction = webassemblyCpp.cwrap("usingStdStringInternally", "string", ["string"]);
+    var stdStr = stdStrFunction("yes!! it works!");
+    console.log("stdStr = " + stdStr);
     
     res.send(200, num);
 });
