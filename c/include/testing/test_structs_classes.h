@@ -62,7 +62,7 @@ EMSCRIPTEN_BINDINGS(test_structs)
     emscripten::class_<Vector3f>("Vector3f")
         .constructor<float, float, float>()
         .property("x", &Vector3f::getX, &Vector3f::setX)
-        .property("y", &Vector3f::getY, &Vector3f::setX)
+        .property("y", &Vector3f::getY, &Vector3f::setY)
         .property("z", &Vector3f::getZ, &Vector3f::setZ)
         .function("getMagnitude", &Vector3f::getMagnitude);
 

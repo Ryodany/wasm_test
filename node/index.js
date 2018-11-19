@@ -56,8 +56,8 @@ app.get('/cpp/:param', function (req, res) {
         case 'constructVector3f': // Constructing Vector3f with 3, 6, 9 params
             console.log("\x1b[36m", "Constructing Vector3f with 3, 6, 9 params");       
             vec = new webassemblyCpp.Vector3f(3, 6, 9);   
-            output = `vecX = ${vec.x} \n vecY = ${vec.y} \n vecZ = ${vec.z}`
-            output += `vec magnitude = ${vec.getMagnitude()} \n`
+            output = `vecX = ${vec.x} <br/> vecY = ${vec.y} <br/> vecZ = ${vec.z} <br/>`
+            output += `vec magnitude = ${vec.getMagnitude()} <br/>`
             // delete to delete from js heap, important
             vec.delete();
         break;
