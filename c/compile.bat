@@ -25,12 +25,14 @@ set include_directories_wa=-I include/
 set include_directories_emcc=-I include/
 
 echo Compiling C: %c_modules_to_compile%...
+echo.
 call wa compile %include_directories_wa% %c_modules_to_compile% -O3 -o %c_wasm_build_dir%%c_output_file%
 IF %ERRORLEVEL% NEQ 0 goto :ERROR_C
 echo.
 
 echo Compiling C++: %cpp_modules_to_compile%...
-call em++ %include_directories_emcc% %cpp_modules_to_compile% -std=c++14 -O3 -s WASM=1 -o %cpp_wasm_build_dir%%cpp_output_file%
+echo.
+call em++ %include_directories_emcc% %cpp_modules_to_compile% --bind -std=c++14 -O3 -s WASM=1 -o %cpp_wasm_build_dir%%cpp_output_file%
 IF %ERRORLEVEL% NEQ 0 goto :ERROR_CPP
 rem -std=c++17 doesn't work yet apparently
 echo.

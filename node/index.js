@@ -31,13 +31,15 @@ app.get('/cpp', function (req, res) {
     console.log("_getNumPlus with arg 3 =");
     console.log(num);
 
-    // WARNING: none function with C++ std types (like std::string) can be exported and used through WebAssembly,
-    // see test_wasm.cpp example in c folder. Primitive types in the function signature are required (like const char *),
-    // but inside it you can use std::string and any C++ std types, you just have to return and accept primitive types.  
-    var stdStrFunction = webassemblyCpp.cwrap("usingStdStringInternally", "string", ["string"]);
-    var stdStr = stdStrFunction("yes!! it works!");
-    console.log("stdStr = " + stdStr);
-    
+    console.log("\x1b[32m", "\nNew stuff:");
+    // reset color
+    console.log("\x1b[0m");
+
+    var str = webassemblyCpp.stdStringSignature("yes!! it works!");
+    console.log(str);
+
+
+    console.log();
     res.send(200, num);
 });
 

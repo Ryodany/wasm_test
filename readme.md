@@ -1,6 +1,7 @@
 # wasm_test
 Requirements:
 
+*  node.js
 *  emsdk (emscripten.org)
 *  npm i under ./node
 
