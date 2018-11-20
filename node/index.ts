@@ -40,8 +40,6 @@ app.get('/cpp/:param', function (req, res) {
             console.log("\x1b[36m", "Constructing StructExample through factory method with 69 and 'Cool name bro' params");
             const structExample: any = webassemblyCpp.constructStructExample(69, "Cool name bro");
             output = webassemblyCpp.returnStructExampleString(structExample);
-            // delete to delete from emscripten heap, important
-            structExample.delete();
         break;
         case 'constructVector3f': // Constructing Vector3f with 3, 6, 9 params
             console.log("\x1b[36m", "Constructing Vector3f with 3, 6, 9 params");       
