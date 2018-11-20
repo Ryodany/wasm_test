@@ -46,3 +46,5 @@ obj
 node/node_modules/
 node/wasm/
 *.wasm
+
+node/package-lock.json

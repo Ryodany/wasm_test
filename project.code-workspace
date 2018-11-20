@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
+		"breadcrumbs.enabled": true,
 		"files.associations": {
 			"memory": "cpp",
 			"cmath": "cpp",
