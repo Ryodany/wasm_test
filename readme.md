@@ -2,7 +2,7 @@
 Requirements:
 
 *  node.js
-*  emsdk (emscripten.org)
+*  emsdk (emscripten.org)@1.35.0
 *  npm i under ./node
 
 
